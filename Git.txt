@@ -1,0 +1,115 @@
+Git Commands
+
+⦁	git status :Used to find the status of the git repo
+⦁	git init :Used to initialize a git repository
+⦁	git add filename.exe :used to add the file(staged files)
+⦁	git commit:To commit the entire operations
+⦁	git commit -m "Commit message" :commit message is given in the command line
+⦁	git log:used to list the commits
+⦁	git add.:Uesd to add entire files in the repo
+⦁	git reset--hard:
+⦁	git checkout HEAD / HEAD -f:
+⦁	git status/branch :used to find the branch
+⦁	git branch -d branchname :To delete a brach after merge
+⦁	git branch -D branchname: To forcefully delete the branch even if it is not merged
+⦁ git branch -vv:to view all the branches
+⦁ git diff :get the difference between last two commits
+⦁ git diff HEAD~1 HEAD :get the difference between the head and head-1 commit
+
+GIT Collaboration
+
+⦁	git clone
+⦁	git branch -a :To show all the branches
+
+Git & GitHub
+
+⦁	mkdir github_sample :create a new repository
+⦁	echo "# github_sample" >> README.md :Create a readme file inside the directory
+⦁	git init :Initialised it as a git hub repo
+⦁	git add README.md :Readme file added
+⦁	git commit -m "Readme file added" :Committed
+⦁	git branch -M main :Branch is changed to main  
+⦁	invitation is send from main branch to client for collaboration after accepting the invitation push the code fro client side.Make sure that create a new branch for applying new changes after committing the-
+  changes we can give branch from existing to main then create pull requests.
+⦁	git push: Used to push the code from client side 
+⦁ then a pull request is send to the server for review and merge to the main branch.
+⦁ After reviewing the changes made by the client we can merge the existing branch to the main branch.
+⦁ Then the final code can be viewed from the server side by using the command "git pull"
+⦁	git pull :Used to get the code changed by the client
+
+Free Website Hosting
+
+- Two types of servers :
+
+1.static server :
+  - Simple server
+  - serve pre-built unchanging files like html
+  - the content is delivered without modification.
+  
+2.dynamic server :
+  - generate or modify the content on each request like php
+  - used for developing large applications 
+
+Steps for hosting the web page :
+- Code Website
+- Push to Github
+- Buy a domain
+- Link it to Github
+
+⦁ create a new repository in github
+⦁ push the code to github
+⦁ git bash codes
+cd filename
+git init
+git add .
+git status :make sure that all files are added
+git commit -m "msg"
+git remote add origin url (from github)
+git branch -M main    (from gt)
+git push -u origin main (from gt)
+- refresh the page to view the code
+- To change the code like a website
+- settings->pages->github pages->source->select branch->root folder is selected for creating website->save
+- website link is give in the top of the github pages
+
+⦁ Buy a domain
+- we can use godaddy or other sites for domain
+- GoDaddy link: https://in.godaddy.com/
+- For free domain name: https://www.freenom
+
+⦁ Link to github
+-to edit dns click on manage dns on new page 
+- edit the dns ip from the GitHub IP details: https://docs.github.com/en/github/wor...
+- edit A record
+- edit cname to the github url name
+- Go to github pages -> custom domain->type domain name->save After saving they will create a new file named cname in our repo
+- website url - in github pages ->enforce https
+
+Git Rebase
+
+Two Types of Merges:
+- Fast Forward merge -label changing for linear commit in case of two braches where there is no other commit in the main branch after creating the new branch
+- Three way merge - merge happens when commits occured after creating the new branch
+
+⦁ Git rebase is mainly helps to prevent non linear history
+⦁ Rebasing is changing the base of a branch to the head of the main branch 
+⦁ Rewinding :changing the label of one branch to other
+⦁ Rebase command : git rebase main
+
+Git pull rebase:
+
+⦁ go to branches in the project repo ->branch protection rule->main branch->check require linear history
+⦁ git fetch :to view the branches
+⦁ create branches and commit the changes then push the code and pull request
+⦁ when we merge from the server (not from outside clients) there is only one option i.e rebase and merge ->confirm rebase and merge
+⦁ In case of some conflicts in the commit operations instead of using the git directly we need to do the rebase and merge manually
+  - git fetch
+  - git rebase origin/main
+            or
+  - git pull --rebase  (fetch+merge)->pull (fetch+rebase)->pull --rebase
+  - git pull origin main --rebase (rebase to main branch)(currently inside another branch)
+   conflicts are shown after this command
+  - After resolving the conflict view the git status and continue rebase using the command "git rebase continue"
+  - To overwrite the existing server side commit and push the code without committing current changes
+    use pushing forcefully :git push -f
+  
