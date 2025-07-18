@@ -1,0 +1,184 @@
+HTML Notes
+
+-> <!DOCTYPE html> :Specify document type html
+-> <head></head> :head part includes all the important informations about the document like metadata,title and link
+-> <title></title> :The document title is given inside the title tag.
+-> <body></body> :All the contents needs to be displyed on the web page are given inside the body tag
+-> <h1></h1> :h1 to h6 represents headings of different sizes
+-> <p></p> : p element represents a paragraph 
+-> <ul></ul> :ul represents unordered lists with bullet points
+-> <li></li> :li represents each list items 
+-> <div></div> :div element acts like a container for grouping some elements and apply styles uniquely
+-> <a href=""></a> :Anchor tag which is used to give hyperlinks and the hyperlink is given in the href attribute.
+   The content to be displayed on the page is given in between the tag.
+-> <span></span> :span element has no special meaning and it can be used for applying unique styles to the text contents
+-> <img src="./images/img1.jpeg" alt="img1"> :image tag is used to disply an image  on web page.
+   It has two attributes src - image source / path , alt - alternate text - It displays an alternate text if the image is not working
+-> <br> :br tag is used to give line breaks
+-> <blockquote></blockquote> :The blockquote element represents content that is quoted from another source.
+-> <p style="color: blueviolet;">Hi...</p> :Here an inline css element is given inside the p tag used to change the color of the text
+-> <form></form> :used to create a form
+-> <input type="text" id="username" required> :Give an input field for typing text like username and id is used for uniquely calling that particular tag.required attribute-dont left the column empty
+-> <label for="username">Enter username</label> :label for the input tag having id as username
+-> There are differnt input type including email,number,password,tel etc.
+-> <select name="state" id="state">
+      <option value="kerala">Kerala</option>
+      <option value="Karnataka">Karnataka</option>
+      <option value="Tamilnadu">Tamilnadu</option>
+    </select>
+    - This is a dropdown box with may values to select
+    - The option element represents an option in a select element or as part of a list of suggestions in a datalist element.
+-> <textarea name="addr" id="addr" cols="30" rows="10" placeholder="Enter Address"></textarea> :Create a text area to type large text input and the size is given
+-> <input type="submit" value="Click here to submit"> :craete a submit button automatically with a value displayed on the button
+
+CSS Notes (cascading style sheet)
+
+->style sheet :a list of css rules
+->three types of css :
+  -Inline :given inside html tags
+  -Internal :given inside style tag in head section
+  -External :given externally using css file
+->types of css selectors :
+  - tag name,div,class etc
+  - syntax for css:
+    selector{
+      declarations(key value pairs)
+    }
+->Types of elements
+  -Inline elements:
+    -Dont take up any more space than their ontent needs
+    -example : span,img,strong,em,a etc
+    -Inline elements cannot have margin top and bottom it only moves left or right
+    -padding collapse
+  -Block level elements:
+    -Take up the whole width of a page regardless of content
+    -example p,div,h1,h2,h3,ul,li and more
+    -Blok level elements have all margins 
+    - margin collapse
+  - in both cases there are margin collapse and padding collapse in such cases we use inline-block
+
+-> css styles 
+  - color
+  - background color
+  - font size
+  - font family
+  - text-align
+  - padding (between border and element)
+  - margin (between page and border)
+
+-> styles can be applied for paragraphs
+  - line-height: 30px;
+    letter-spacing: 2px;
+    column-count: 3;
+    column-gap: 50px;
+
+-> border: 3px solid green; - border for an element
+-> list-style-type: square; - style applied for bullet points
+-> css class selector is used to group some elements and aplly styles commonly
+-> To style a link element use
+   a[href="some.google.com"]{}
+-> a[href*="some"]{
+    background-color:red;
+    }
+    - This selects the links which contain the specified word "some"
+-> a[href$=".com"]{}
+  - This selects the anchor tag that ends in .com
+
+Inheritance
+
+- HTML element can inherit the CSS properties (font,text styles,colors not margin & padding) that are applied to their parents
+- p{
+    border:inherit;
+    margin: inherit;
+  }   
+  This will inherit the properties from its parent class
+  we can override the property of the parent only for that particular child it will doesnt affect the parent directly
+  When we override the properties of an element multiple times the precedence is given from top to bottom so the last modified property is displayed.
+
+HTML Semantic tags
+
+- <main></main> :For the main content of a webpage,unique to that page
+- <section></section> :Defines a certain section of a webpage(blog list,contact info etc)
+- <article></article> :Defines a bit of content which makes up an article (blog post)
+- <aside></aside> :Defines ome content related to something else (similar blogs)
+- <header></header> :For the header of a website -contains the nav,title etc
+- <footer></footer> :For the footer of a website
+
+Position and Layout
+
+-> static :HTML elements have default value of static and no specific position is given to this value but it does keep the element in normal document flow of the page
+-> relative :we can shift the element aound the page relative to its original position in the page
+   {
+   position:relative;
+   left:20px;
+   bottom:20px;
+   }
+   This means the element is shifted from its original position to left 20px and bottom 20px
+-> fixed :That positions a certain element relative to the viewport and now the viewport is just a part of a browser that we see the webpage on
+   {
+   position:fixed;
+   left:0px;
+   top:0px;
+   }
+   This will not change its position even if scroll down the page.
+-> absolute :This allows us to position things absolutely relative to its closest parent which has also been given a position property.
+   This will change the position absolutely based on the position of its parent.
+   {
+   position:absolute;
+   left:20px;
+   bottom:20px;
+   }
+   This will change the child element from left and bottom based on the given value relative to its parent elements area
+-> sticky : Its a mixture of both static and fixed
+   Its static to begin with then it becomes fixed when we scroll the page when it reaches to a certain points
+
+Position
+
+-> z-index :it bring things forward or push them back on the page so we want to bring this thing forward right here now.
+   By default the z-index of all are 0. To make it forward set z-index:1 
+-> margin:0 auto; - it horizontally centralizes the content
+->box-sizing: border-box;  in case of giving padding to some content it left off the screen when we reduce the size to avoid this box sizing is used
+
+Pseudo classes
+
+-> Style elements when they are in a particular state
+-> hover,focus,first-child of a parent
+-> Ex :
+  form input:focus{
+  border:4px dashed #4b4b4b;
+  outline: none;
+  }
+  form input:valid{
+    border: 4px solid rgb(53, 218, 53);
+  }
+
+Pseudo elements
+
+-> used to apply dynamic changes
+-> example
+    article p::first-line{
+    font-weight: bold;
+    font-size: 1.2em;
+    }
+    section.join p::first-letter{
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    section.join p::selection{
+      background-color: yellow ;
+    }
+    p::after{
+      content: '...';
+    }
+
+Media Queries
+
+- Tell  the browser how to style an element at a particular viewport dimensions
+
+Viewport meta tag
+
+- Tells the browser what width the viewport should be
+
+Responsive images
+
+- Only load smaller images for mobile devices
